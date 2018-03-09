@@ -21,4 +21,11 @@ class Train extends Model
         return $this->hasMany('App\Record');
     }
 
+    /**
+     * Get available classes.
+     */
+    public function classes()
+    {
+        return $this->belongsToMany('App\FairClass');
+    }
 }
