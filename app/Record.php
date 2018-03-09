@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Record extends Model
 {
-    protected $fillable = ['arrival','departure'];
+    protected $fillable = ['station_id','train_id','arrival','departure'];
 
     /**
      * Get the train.

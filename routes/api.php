@@ -16,3 +16,7 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('train', 'Api\AdminController@create_train');
+Route::post('station', 'Api\AdminController@create_station');
+Route::post('record', 'Api\AdminController@create_record');
