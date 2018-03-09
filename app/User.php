@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'last_active', 'role'
     ];
 
     /**
@@ -26,4 +26,20 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Get the news belong to the user.
+     */
+    public function news()
+    {
+        return $this->hasMany('App\News');
+    }
+
+    /**
+     * Get the edit_suggestions belong to the user.
+     */
+    public function editSuggestion()
+    {
+        return $this->hasMany('App\EditSuggestion');
+    }
 }
