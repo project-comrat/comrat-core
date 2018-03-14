@@ -1,8 +1,8 @@
 <template>
     <div class="container">
         <div class="card-panel">
-            <h5>Add Train</h5>
-            {{errors}}
+            <h5><i class="material-icons left">train</i>Add Train</h5>
+
             <div class="row">
                 <form class="col s12">
                     <div class="row">
@@ -81,19 +81,27 @@
         methods:{
             submit(){
                 this.validate();
+                console.log("validated");
+                console.log(this.train.number);
             },
 
             validate(){
-                if(this.number==null){
+                this.errors=[];
+                if(this.train.number==null){
                     this.errors.push("Please enter the Train number");
+                    Materialize.toast('Please enter the Train number',2500);
                 }
 
-                if(this.type==null){
+                if(this.train.type==null){
                     this.errors.push("Please enter the Train type");
+                    Materialize.toast('Please enter the Train type',2500);
+
                 }
 
-                if(this.frequency==null){
+                if(this.train.frequency==null){
                     this.errors.push("Please enter the Train frequency");
+                    Materialize.toast('Please enter the Train frequency',2500);
+
                 }
             }
         }
