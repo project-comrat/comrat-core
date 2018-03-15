@@ -11,5 +11,8 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+mix.copy('resources/assets/css', 'public/css')
+    .copy('resources/assets/js/jquery-3.2.1.min.js', 'public/js')
+    .copy('resources/assets/js/materialize.min.js', 'public/js')
+    .js('resources/assets/js/app.js', 'public/js')
+    .sass('resources/assets/sass/materialize.scss', 'public/css');

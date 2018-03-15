@@ -3,8 +3,8 @@ This is the core repository of the comrat project
 
 ### Let's roll !!! ###
 
-* `git clone https://github.com/bestmomo/laravel5-example.git projectname`
-* `cd projectname`
+* `git clone https://github.com/project-comrat/comrat-core.git comrat`
+* `cd comrat`
 * `cp .env.example .env`
 * `composer install`
 * `php artisan key:generate`

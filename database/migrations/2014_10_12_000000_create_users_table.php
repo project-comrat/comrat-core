@@ -13,12 +13,16 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('users');
+        Schema::defaultStringLength(191);
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
             $table->rememberToken();
+            $table->timestamp('last_active');
+            $table->string('role');
             $table->timestamps();
         });
     }
