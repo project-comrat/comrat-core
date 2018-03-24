@@ -8,15 +8,40 @@ use App\Http\Controllers\Controller;
 class ApiController extends Controller
 {
     /**
+     * This has been added in order to manage CORS functionality via Cors Middleware
+     */
+    public function __construct()
+    {
+        $this->middleware('cors');
+    }
+
+
+    /**
      * success response method.
      *
      * @return \Illuminate\Http\Response
      */
-    public function sendResponse($result, $message)
+    public function sendData($result, $message="")
     {
         $response = [
             'success' => true,
             'data'    => $result,
+            'message' => $message,
+        ];
+
+        return response()->json($response, 200);
+    }
+
+
+    /**
+     * success response method.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function sendResponse($message)
+    {
+        $response = [
+            'success' => true,
             'message' => $message,
         ];
 

@@ -18,21 +18,24 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col s12">
-                            <select v-model="train.type" id="type" class="validate">
-                                <option value="" disabled selected>Choose your option</option>
-                                <option value="Colombo Commuter">Colombo Commuter</option>
-                                <option value="Express Txrain">Express Train</option>
-                                <option value="Mixed Train">Mixed Train</option>
-                                <option value="Long Distance">Long Distance</option>
-                                <option value="Night Mail">Night Mail</option>
-                            </select>
-                            <label>Type</label>
+                        <div class="col s12">
+                            <div>
+                                <label class="">Type</label>
+                                <select v-model="train.type" id="type" class="browser-default">
+                                    <option value="" disabled selected>Choose your option</option>
+                                    <option value="Colombo Commuter">Colombo Commuter</option>
+                                    <option value="Express Txrain">Express Train</option>
+                                    <option value="Mixed Train">Mixed Train</option>
+                                    <option value="Long Distance">Long Distance</option>
+                                    <option value="Night Mail">Night Mail</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col s12">
-                            <select v-model="train.frequency" id="frequency" class="validate">
+                        <div class="col s12">
+                            <label>Frequency</label>
+                            <select class="browser-default" v-model="train.frequency" >
                                 <option value="" disabled selected>Choose your option</option>
                                 <option value="Daily">Daily</option>
                                 <option value="Monday to Friday except holidays">Monday to Friday except holidays</option>
@@ -81,27 +84,19 @@
         methods:{
             submit(){
                 this.validate();
-                console.log("validated");
-                console.log(this.train.number);
             },
 
             validate(){
-                this.errors=[];
-                if(this.train.number==null){
+                if(this.number==null){
                     this.errors.push("Please enter the Train number");
-                    Materialize.toast('Please enter the Train number',2500);
                 }
 
-                if(this.train.type==null){
+                if(this.type==null){
                     this.errors.push("Please enter the Train type");
-                    Materialize.toast('Please enter the Train type',2500);
-
                 }
 
-                if(this.train.frequency==null){
+                if(this.frequency==null){
                     this.errors.push("Please enter the Train frequency");
-                    Materialize.toast('Please enter the Train frequency',2500);
-
                 }
             }
         }
