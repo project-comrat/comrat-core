@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 
+use App\TrainDate;
 use Exception;
 use App\Train;
 use Illuminate\Http\Request;
@@ -45,6 +46,13 @@ class TrainController extends ApiController
         try{
             $train=new Train($request->all());
             $train->save();
+            $train_dates=$request->get('train_dates');
+            foreach ($train_dates as $train_date){
+                $date=new TrainDate();
+                $date['train_id']=$train->id;
+                $date['record']=$train_date['record'];
+                $date->save();
+            }
         }catch (Exception $e){
             DB::rollback();
             $this->sendError($e->getMessage(),500);

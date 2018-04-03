@@ -28,4 +28,12 @@ class Train extends Model
     {
         return $this->belongsToMany('App\FairClass');
     }
+
+    /**
+     * Get the records belong to the train.
+     */
+    public function trainDates()
+    {
+        return $this->hasMany('App\TrainDate');
+    }
 }
