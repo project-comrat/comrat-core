@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('home');
 });
+
+Route::get('/create-train', function () {
+    return view('ui-forms.create-train');
+});
+
+Route::get('/create-station', function () {
+    return view('ui-forms.create-station');
+});
+
+Route::get('/create-record', function () {
+    return view('ui-forms.create-record');
+});
